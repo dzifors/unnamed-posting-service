@@ -1,5 +1,6 @@
 import fastapi
 import contextlib
+from src.routes import main_router
 
 
 @contextlib.asynccontextmanager
@@ -13,9 +14,9 @@ async def lifespan(_):
 
     # TODO: Disconnect from database
 
-
 def init_backend() -> fastapi.FastAPI:
     asgi_app = fastapi.FastAPI(lifespan=lifespan)
+    asgi_app.include_router(main_router)
 
     return asgi_app
 

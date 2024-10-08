@@ -2,7 +2,7 @@ import uvicorn
 import logging
 
 
-def main():
+def main() -> int:
     uvicorn.run(
         "src.init:asgi_app",
         host="127.0.0.1",
