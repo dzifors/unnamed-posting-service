@@ -1,12 +1,7 @@
+import "@/styles/globals.scss";
+import Navbar from "@/ui/navbar";
+import { ClerkProvider } from "@clerk/nextjs";
 import type { Metadata } from "next";
-import "./globals.css";
-import {
-    ClerkProvider,
-    SignedIn,
-    SignedOut,
-    SignInButton,
-    UserButton
-} from "@clerk/nextjs";
 
 export const metadata: Metadata = {
     title: "Unnamed Posting Service",
@@ -22,14 +17,7 @@ export default function RootLayout({
         <ClerkProvider>
             <html lang="en">
                 <body>
-                    <SignedOut>
-                        <SignInButton />
-                    </SignedOut>
-
-                    <SignedIn>
-                        <UserButton />
-                    </SignedIn>
-
+                    <Navbar />
                     {children}
                 </body>
             </html>
